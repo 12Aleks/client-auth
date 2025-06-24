@@ -1,103 +1,92 @@
-import Image from "next/image";
+'use client';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import {useEffect, useState} from 'react';
+import {getUsers, logout} from "@/app/lib/actions/api";
+import {useRouter} from "next/navigation";
+import { jwtDecode } from "jwt-decode";
+import Cookies from 'js-cookie';
+import UsersList from "@/app/components/users/UsersList";
+
+interface JwtPayload {
+    role: 'user' | 'admin' | 'distributor';
+}
 
 export default function Home() {
+    const [visible, setVisible] = useState(false);
+    const [role, setRole] = useState<JwtPayload['role'] | null>(null);
+    const router = useRouter();
+
+    const { data, error, isLoading } = useQuery({
+        queryKey: ['users'],
+        queryFn: getUsers,
+        enabled: visible && role === 'admin', // if role is admin
+    });
+
+    const logoutMutation = useMutation({
+        mutationFn: logout,
+        onSuccess: () => {
+            console.log('Successfully logged out!');
+            router.push('/login')
+        },
+        onError: (error) => {
+            console.error('Error:', error);
+        }
+    })
+
+    useEffect(() => {
+        const token = Cookies.get('accessToken');
+        if (token) {
+            try {
+                const decoded = jwtDecode<JwtPayload>(token);
+                setRole(decoded.role);
+            } catch {
+                setRole(null);
+            }
+        }
+    }, []);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+          <div className="max-w-2xl mx-auto mt-20 text-center">
+              <h1 className="text-3xl font-bold mb-6">Welcome</h1>
+              <p className="py-5">Hello user your role is {role}</p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+              {role === 'admin' ? (
+                  <div className="flex flex-col gap-y-4">
+                      <button
+                          className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer max-w-[200px] w-full m-auto block"
+                          onClick={() => setVisible(true)}
+                      >
+                          See all users
+                      </button>
+
+                      {visible && (
+                          <div className="mt-4">
+                              {isLoading && <p>Loading...</p>}
+                              {error && <p className="text-red-500">Insufficient rights to view users</p>}
+                              {data && <UsersList data={data} />}
+                          </div>
+                      )}
+                  </div>
+              ) : (
+                  <p className="text-red-500 mb-4">You need a admin role in app</p>
+              )}
+              <div className="space-x-3">
+              <button
+                  className="bg-green-600 text-white px-4 py-2 rounded cursor-pointer mt-8"
+                  onClick={() => logoutMutation.mutate()}
+              >
+                  Logout
+              </button>
+              <button   className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer mt-8"
+              onClick={() => router.push('/login')}>
+                  Login
+              </button>
+              </div>
+          </div>
+
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
