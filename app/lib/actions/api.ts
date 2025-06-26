@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import {AuthDto} from "@/app/lib/zodSchema";
-import {User} from "@/app/utils/types";
+import {AuthDto, Item} from "@/app/lib/zodSchema";
+import { User} from "@/app/utils/types";
 
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
@@ -32,6 +32,16 @@ export const logout = async (): Promise<{ message: string }> => {
 
 export const getUsers = async (): Promise<User[]> => {
     const res = await api.get('/users');
+    return res.data;
+}
+
+export const createItem = async(dto: Item) => {
+    const res = await api.post('/items/create', dto);
+    return res.data;
+}
+
+export const getAllItems = async (): Promise<Item[]> => {
+    const res = await api.get<Item[]>('/items');
     return res.data;
 }
 

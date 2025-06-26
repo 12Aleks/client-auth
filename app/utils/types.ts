@@ -5,3 +5,12 @@ export interface User {
     email: string;
     role: Role;
 }
+
+export interface Item {
+    title: string;
+    description: string;
+}
+
+export interface JwtPayload {
+    role: 'user' | 'admin' | 'distributor';
+}
