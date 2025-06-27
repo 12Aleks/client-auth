@@ -3,8 +3,6 @@ import { useMutation } from '@tanstack/react-query';
 import { logout} from "@/app/lib/actions/api";
 import {useRouter} from "next/navigation";
 
-
-
 export default function Home() {
     const router = useRouter();
 
@@ -19,8 +17,6 @@ export default function Home() {
         }
     })
 
-
-
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -28,17 +24,17 @@ export default function Home() {
               <h1 className="text-3xl font-bold mb-6">Welcome</h1>
               <p className="text-red-500 mb-4 text-xl">in our app</p>
               <div className="flex gap-x-3 text-white  mt-8">
-              <button className="bg-amber-500 px-4 py-2 rounded cursor-pointer" onClick={() => router.push('/users')}>Admin panel (only for users with the admin role)</button>
-              <button className="bg-cyan-500 px-4 py-2 rounded cursor-pointer" onClick={() => router.push('/items')}>Customer panel (only for users with the admin or customer roles)</button>
+              <button className="w-full max-w-[350] bg-amber-500 px-4 py-2 rounded cursor-pointer" onClick={() => router.push('/users')}>Admin panel (only for users with the admin role)</button>
+              <button className="w-full max-w-[350] bg-cyan-500 px-4 py-2 rounded cursor-pointer" onClick={() => router.push('/items')}>Customer panel (only for users with the admin or customer roles)</button>
               </div>
               <div className="space-x-3">
-              <button
-                  className="bg-green-600 text-white px-4 py-2 rounded cursor-pointer mt-8"
+                  <button
+                  className="bg-green-600 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]"
                   onClick={() => logoutMutation.mutate()}
               >
                   Logout
               </button>
-              <button   className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer mt-8"
+              <button   className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]"
               onClick={() => router.push('/login')}>
                   Login
               </button>

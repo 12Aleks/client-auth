@@ -32,7 +32,7 @@ const UsersPage = () => {
     }, []);
 
     return (
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-4 m-4">
             <button
                 className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer max-w-[200px] w-full m-auto block"
                 onClick={() => setVisible(true)}

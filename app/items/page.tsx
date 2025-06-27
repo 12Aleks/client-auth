@@ -30,12 +30,12 @@ const ItemPage = () => {
     }, []);
 
     return (
-        <>
+        <div className="m-4">
+            {role && <FormComponent role={role} />}
             {(isLoading ) && <p>Loading...</p>}
             {error && <p className="text-red-500">Insufficient rights to view users</p>}
             {data && <ItemsList data={data} />}
-            {role && <FormComponent role={role} />}
-        </>
+        </div>
     );
 };
 

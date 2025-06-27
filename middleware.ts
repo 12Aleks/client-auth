@@ -30,5 +30,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/users/:path*'], // Protect all /users routes
+    matcher: ['/users/:path*', '/items/:path*'], // Protect all /users || /items routes
 };
