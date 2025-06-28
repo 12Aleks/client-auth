@@ -44,19 +44,26 @@ export default function Home() {
               <button className="w-full max-w-[350] bg-amber-500 px-4 py-2 rounded cursor-pointer" onClick={() => router.push('/users')}>Admin panel (only for users with the admin role)</button>
               <button className="w-full max-w-[350] bg-cyan-500 px-4 py-2 rounded cursor-pointer" onClick={() => router.push('/items')}>Customer panel (only for users with the admin or customer roles)</button>
               </div>
-               <div className="space-x-3">
-                   { role!! &&  <button
+               <div>
+                   { role ?  <button
                   className="bg-green-600 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]"
                   onClick={() => logoutMutation.mutate()}
               >
                   Logout
-              </button>}
-              <button   className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]"
+              </button> :
+                       <div className="space-x-3"><button   className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]"
               onClick={() => router.push('/login')}>
                   Login
               </button>
+                       <button
+                       onClick={() => {router.push('/register')}}
+                   className="bg-fuchsia-500 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]">
+                   Registration
+                       </button></div>
+                   }
               </div>
           </div>
+
 
       </main>
     </div>

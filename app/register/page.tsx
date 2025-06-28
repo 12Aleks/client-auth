@@ -4,6 +4,7 @@ import { register } from '../lib/actions/api';
 import { authSchema } from '../lib/zodSchema';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import {Role} from "@/app/utils/types";
 
 export default function RegisterPage() {
     const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ export default function RegisterPage() {
 
     return (
         <div className="max-w-sm mx-auto mt-20">
-            <h1 className="text-2xl font-bold mb-4">Регистрация</h1>
+            <h1 className="text-2xl font-bold mb-4 text-center">Registration</h1>
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -42,7 +43,7 @@ export default function RegisterPage() {
                 />
                 <input
                     type="password"
-                    placeholder="Пароль"
+                    placeholder="Password"
                     className="border p-2 w-full"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -50,14 +51,14 @@ export default function RegisterPage() {
                 <select
                     className="border p-2 w-full"
                     value={role}
-                    onChange={(e) => setRole(e.target.value as any)}
+                    onChange={(e) => setRole(e.target.value as Role)}
                 >
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
                     <option value="distributor">Distributor</option>
                 </select>
                 <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
-                    Зарегистрироваться
+                    Send your data and create an account
                 </button>
             </form>
         </div>
