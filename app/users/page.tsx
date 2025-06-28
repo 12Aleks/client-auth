@@ -1,35 +1,19 @@
 "use client"
 import {useEffect, useState} from 'react';
-import UsersList from "@/app/components/users/UsersList";
+import UsersList from "@/app/features/users/UsersList";
 import {useQuery} from "@tanstack/react-query";
 import {getUsers} from "@/app/lib/actions/api";
-import Cookies from "js-cookie";
-import {jwtDecode} from "jwt-decode";
-import {JwtPayload} from "@/app/utils/types";
+import {useAuth} from "@/app/providers/AuthProvider";
 
 const UsersPage = () => {
     const [visible, setVisible] = useState(false);
-    const [role, setRole] = useState<JwtPayload['role'] | null>(null);
-
+    const {role} = useAuth()
 
     const { data, error, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: getUsers,
         enabled: visible && role === 'admin', // if role is admin
     });
-
-
-    useEffect(() => {
-        const token = Cookies.get('accessToken');
-        if (token) {
-            try {
-                const decoded = jwtDecode<JwtPayload>(token);
-                setRole(decoded.role);
-            } catch {
-                setRole(null);
-            }
-        }
-    }, []);
 
     return (
         <div className="flex flex-col gap-y-4 m-4">

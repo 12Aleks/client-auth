@@ -23,8 +23,8 @@ export default function LoginPage() {
     });
 
     return (
-        <div className="max-w-sm mx-auto mt-20">
-            <h1 className="text-2xl font-bold mb-4">Log in to the system</h1>
+        <div className="max-w-sm mx-auto mt-20 px-5 py-7 border rounded-2xl">
+            <h1 className="text-2xl font-bold mb-4 text-center">Login to the system:</h1>
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -50,7 +50,8 @@ export default function LoginPage() {
                 />
                 <button
                     type="submit"
-                    className="bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer"
+                    className="bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer
+                    hover:bg-blue-800 transition duration-200"
                 >  Login
 
                 </button>

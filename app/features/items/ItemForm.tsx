@@ -10,7 +10,7 @@ interface FormComponentProps {
     role: string;
 }
 
-const FormComponent = ({role}: FormComponentProps) => {
+const ItemForm = ({role}: FormComponentProps) => {
     const queryClient = useQueryClient();
     const {register, handleSubmit, reset, formState: {errors}} = useForm<Item>({
        resolver: zodResolver(ItemSchema)
@@ -48,4 +48,4 @@ const FormComponent = ({role}: FormComponentProps) => {
     );
 };
 
-export default FormComponent;
+export default ItemForm;

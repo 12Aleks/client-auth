@@ -1,6 +1,6 @@
 import React from 'react';
 import {User} from "@/app/utils/types";
-import UserItem from "@/app/components/users/UserItem";
+import UserCard from "@/app/features/users/UserCard";
 
 interface UsersListProps {
     data: User[];
@@ -19,7 +19,7 @@ const UsersList = ({data}: UsersListProps) => {
             <tbody>
             {
                 data?.map((user, index) => (
-                    <UserItem user={user} index={index} key={index} />
+                    <UserCard user={user} index={index} key={index} />
                 ))
             }
             </tbody>

@@ -5,7 +5,7 @@ interface Props {
     description: string;
 }
 
-const SingleItem = (item: Props) => {
+const ItemCard = (item: Props) => {
     return (
         <div key={item.title} className="border p-4 rounded shadow m-4 hover:border-amber-500 transition duration-200
          hover:text-amber-500">
@@ -15,4 +15,4 @@ const SingleItem = (item: Props) => {
     );
 };
 
-export default SingleItem;
+export default ItemCard;

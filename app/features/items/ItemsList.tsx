@@ -1,6 +1,6 @@
 import React from 'react';
 import { Item } from "@/app/utils/types";
-import SingleItem from "@/app/components/items/SingleItem";
+import ItemCard from "@/app/features/items/ItemCard";
 
 interface Props {
     data: Item[];
@@ -13,7 +13,7 @@ const ItemsList = ({ data }: Props) => {
                 <p>Items not found...</p>
             ) : (
                 data?.map((item) => (
-                    <SingleItem  key={item.title} {...item} />
+                    <ItemCard  key={item.title} {...item} />
                 ))
             )}
         </div>

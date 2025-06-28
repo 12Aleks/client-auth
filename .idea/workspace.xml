@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6000ebc-f051-4c9b-8f87-42437f546137" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/items/SingleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/items/SingleItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/QueryProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/providers/QueryProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/items/FormComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/items/ItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/items/ItemsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/items/ItemsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/items/SingleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/items/ItemCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/users/UserItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/users/UserCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/users/UsersList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/users/UsersList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/items/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/items/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/users/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +108,10 @@
       <workItem from="1750941677470" duration="2414000" />
       <workItem from="1750948794455" duration="4992000" />
       <workItem from="1751020346300" duration="299000" />
-      <workItem from="1751022955340" duration="564000" />
+      <workItem from="1751022955340" duration="2555000" />
+      <workItem from="1751035081088" duration="1613000" />
+      <workItem from="1751044561119" duration="1233000" />
+      <workItem from="1751092369124" duration="591000" />
     </task>
     <servers />
   </component>

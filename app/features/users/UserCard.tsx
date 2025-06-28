@@ -6,7 +6,7 @@ interface Props {
     index: number
 }
 
-const UserItem = ({user, index}: Props) => {
+const UserCard = ({user, index}: Props) => {
     return (
         <tr className="hover:text-amber-500">
             <td className="border border-gray-300 px-4 py-2">{index + 1}</td>
@@ -16,4 +16,4 @@ const UserItem = ({user, index}: Props) => {
     );
 };
 
-export default UserItem;
+export default UserCard;
