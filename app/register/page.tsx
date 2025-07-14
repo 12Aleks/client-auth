@@ -23,8 +23,8 @@ export default function RegisterPage() {
     });
 
     return (
-        <div className="max-w-sm mx-auto mt-20">
-            <h1 className="text-2xl font-bold mb-4 text-center">Registration</h1>
+        <div className="max-w-sm mx-auto mt-20 px-5 py-7 border rounded-2xl">
+            <h1 className="text-2xl font-bold mb-4 text-center">Registration:</h1>
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -57,7 +57,7 @@ export default function RegisterPage() {
                     <option value="admin">Admin</option>
                     <option value="distributor">Distributor</option>
                 </select>
-                <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
+                <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded m-auto block">
                     Send your data and create an account
                 </button>
             </form>

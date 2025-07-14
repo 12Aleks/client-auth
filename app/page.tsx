@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-          <div className="max-w-2xl mx-auto mt-20 text-center px-5 py-7 border rounded-2xl">
+          <div className="max-w-2xl mx-auto mt-20 text-center px-5 py-7 border rounded-2xl bg-gray-100">
               <h1 className="text-3xl font-bold mb-6">Welcome</h1>
               <p className="text-red-500 mb-4 text-xl">{role} in our app</p>
               <div className="flex gap-x-3 text-white  mt-8">
@@ -57,7 +57,7 @@ export default function Home() {
               </button>
                        <button
                        onClick={() => {router.push('/register')}}
-                   className="bg-fuchsia-500 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]">
+                   className="bg-neutral-500 text-white px-4 py-2 rounded cursor-pointer mt-8 w-full max-w-[300]">
                    Registration
                        </button></div>
                    }

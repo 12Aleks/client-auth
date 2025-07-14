@@ -9,11 +9,18 @@ const UsersPage = () => {
     const [visible, setVisible] = useState(false);
     const {role} = useAuth()
 
-    const { data, error, isLoading } = useQuery({
+    const { data, error, isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: getUsers,
-        enabled: visible && role === 'admin', // if role is admin
+        enabled: false
+//        enabled: visible && role === 'admin', // if role is admin
     });
+
+    useEffect(() => {
+        if (visible && role === 'admin') {
+            refetch();
+        }
+    }, [visible, role, refetch]);
 
     return (
         <div className="flex flex-col gap-y-4 m-4">

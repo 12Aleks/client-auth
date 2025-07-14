@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [role, setRole] = useState<JwtPayload['role'] | null>(null);
 
     useEffect(() => {
-        const token = Cookies.get('accessToken');
+        const token: string | undefined = Cookies.get('accessToken');
         if (token) {
             try {
                 const decoded = jwtDecode<JwtPayload>(token);

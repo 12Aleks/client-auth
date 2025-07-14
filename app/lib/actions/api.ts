@@ -45,6 +45,11 @@ export const getAllItems = async (): Promise<Item[]> => {
     return res.data;
 }
 
+export const getItem = async(id: string) => {
+    const res = await api.get<Item>(`/items/${id}`);
+    return res.data;
+}
+
 //настройка axios при каждом запросе к серверу передаем токен взятый из куки в заголовке Authorization
 api.interceptors.request.use((config) => {
     const accessToken: string | undefined = Cookies.get('accessToken');

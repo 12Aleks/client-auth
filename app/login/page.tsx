@@ -50,10 +50,9 @@ export default function LoginPage() {
                 />
                 <button
                     type="submit"
-                    className="bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer
-                    hover:bg-blue-800 transition duration-200"
+                    className="m-auto block bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer
+                    hover:bg-blue-800 transition duration-300"
                 >  Login
-
                 </button>
             </form>
         </div>

@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6000ebc-f051-4c9b-8f87-42437f546137" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/items/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/features/items/ItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/items/ItemCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/features/items/ItemsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/items/ItemsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/actions/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/actions/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/providers/AuthProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/providers/AuthProvider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/users/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +110,19 @@
       <workItem from="1751022955340" duration="2555000" />
       <workItem from="1751035081088" duration="1613000" />
       <workItem from="1751044561119" duration="1233000" />
-      <workItem from="1751092369124" duration="1996000" />
+      <workItem from="1751092369124" duration="2363000" />
+      <workItem from="1751209823315" duration="2699000" />
+      <workItem from="1751352748393" duration="1044000" />
+      <workItem from="1751389355241" duration="622000" />
+      <workItem from="1751450081107" duration="744000" />
+      <workItem from="1751455720692" duration="594000" />
+      <workItem from="1751467696613" duration="594000" />
+      <workItem from="1751469815855" duration="657000" />
+      <workItem from="1751534595136" duration="585000" />
+      <workItem from="1752156417001" duration="595000" />
+      <workItem from="1752308777864" duration="63000" />
+      <workItem from="1752416028752" duration="823000" />
+      <workItem from="1752493559126" duration="3678000" />
     </task>
     <servers />
   </component>
