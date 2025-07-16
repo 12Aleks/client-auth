@@ -1,31 +1,36 @@
-'use client'
-
-import React from 'react';
-import { useQuery } from "@tanstack/react-query";
-import { getItem } from "@/app/lib/actions/api";
-import { useParams } from "next/navigation";
-
-const ItemPage = () => {
-    const {id} = useParams();
+import {Metadata} from "next";
+import {getItem} from "@/app/lib/actions/api";
+import {Item} from "@/app/utils/types";
+import NotFound from "next/dist/client/components/not-found-error";
+import {notFound} from "next/navigation";
 
 
-    console.log("single", id);
+type Props = {
+    params: { id: string };
+};
 
-    const { data, error, isLoading } = useQuery({
-        queryKey: ['item', id],
-        queryFn: ({ queryKey }) => getItem(queryKey[1] as string),
-        enabled: !!id,
-    });
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const data: Pick<Item, "title" | "description"> | null = await getItem(params.id);
 
-    if (isLoading) return <div>Загрузка...</div>;
-    if (error) return <div>Ошибка: {(error as Error).message}</div>;
+    return {
+        title: data?.title || 'Single item',
+        description: data?.description || 'Description information',
+    }
+}
+
+
+const ItemPage = async({ params }: Props) => {
+    const data: Pick<Item, "title" | "description"> | null = await getItem(params.id)
+
+    if (!data) return notFound();
 
     return (
-        <div>
-            <h1>{data?.title}</h1>
-            <p>{data?.description}</p>
+        <div className="flex flex-col p-5">
+            <h1 className="text-3xl mb-5">{data.title}</h1>
+            <div>{data.description}</div>
         </div>
-    );
+    )
+
 };
 
 export default ItemPage;

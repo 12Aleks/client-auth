@@ -2,9 +2,12 @@ import React from 'react';
 import { Item } from "@/app/utils/types";
 import ItemCard from "@/app/features/items/ItemCard";
 
+
 interface Props {
     data: Item[];
 }
+
+
 
 const ItemsList = ({ data }: Props) => {
 
